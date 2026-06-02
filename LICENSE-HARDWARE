@@ -1,0 +1,33 @@
+Reference,Component,Description,Quantity,Footprint,Value,Supplier,Supplier_PN,Unit_Cost_USD,Total_Cost_USD,Notes
+U1,Seeed XIAO RP2040,Dual-core ARM Cortex-M0+ microcontroller module,1,Stamp-Headers-21x17.5mm,RP2040,Seeed Studio,102010428,5.00,5.00,Mount on 2x7 female pin headers — removable and reusable
+LED1,5mm LED Red,Through-hole 5mm red LED,1,LED-TH-5mm,Red,LCSC,C84256,0.02,0.02,GP0 — 330Ω series resistor required
+LED2,5mm LED Green,Through-hole 5mm green LED,1,LED-TH-5mm,Green,LCSC,C84257,0.02,0.02,GP1 — 330Ω series resistor required
+LED3,5mm LED Yellow,Through-hole 5mm yellow LED,1,LED-TH-5mm,Yellow,LCSC,C84258,0.02,0.02,GP2 — 330Ω series resistor required
+LED4,5mm LED Blue,Through-hole 5mm blue LED,1,LED-TH-5mm,Blue,LCSC,C84259,0.02,0.02,GP3 — 330Ω series resistor required
+LED5,5mm LED White,Through-hole 5mm white LED,1,LED-TH-5mm,White,LCSC,C84260,0.02,0.02,GP4 — 330Ω series resistor required
+R1,Resistor 330Ω,Through-hole resistor for LED1,1,R-TH-0.25W,330,LCSC,C57438,0.01,0.01,Current limiter for LED Red
+R2,Resistor 330Ω,Through-hole resistor for LED2,1,R-TH-0.25W,330,LCSC,C57438,0.01,0.01,Current limiter for LED Green
+R3,Resistor 330Ω,Through-hole resistor for LED3,1,R-TH-0.25W,330,LCSC,C57438,0.01,0.01,Current limiter for LED Yellow
+R4,Resistor 330Ω,Through-hole resistor for LED4,1,R-TH-0.25W,330,LCSC,C57438,0.01,0.01,Current limiter for LED Blue
+R5,Resistor 330Ω,Through-hole resistor for LED5,1,R-TH-0.25W,330,LCSC,C57438,0.01,0.01,Current limiter for LED White
+BZ1,Passive Buzzer 3V,Passive piezo buzzer,1,Buzzer-TH-9mm,3V,LCSC,C96087,0.18,0.18,GP5 — driven via PWM for tone generation
+SW1,Slide Switch,SPDT slide switch for power,1,SW-Slide-3pin,SPDT,LCSC,C128955,0.10,0.10,Interrupts battery rail — connects to 3V3 pin on XIAO
+BTN1,Tactile Button A,6x6mm tactile push button,1,SW-TH-6x6mm,6x6mm,LCSC,C318884,0.05,0.05,GP6 — internal pull-up enabled in firmware
+BTN2,Tactile Button B,6x6mm tactile push button,1,SW-TH-6x6mm,6x6mm,LCSC,C318884,0.05,0.05,GP7 — internal pull-up enabled in firmware
+BTN3,Tactile Button C,6x6mm tactile push button,1,SW-TH-6x6mm,6x6mm,LCSC,C318884,0.05,0.05,GP8 — internal pull-up enabled in firmware
+BTN4,Tactile Button D,6x6mm tactile push button,1,SW-TH-6x6mm,6x6mm,LCSC,C318884,0.05,0.05,GP9 — internal pull-up enabled in firmware
+LDR1,LDR 5mm,Light dependent resistor (photoresistor),1,LDR-TH-5mm,GL5528,LCSC,C72853,0.06,0.06,GP26 ADC0 — 10K voltage divider to GND
+NTC1,Thermistor NTC 10K,NTC thermistor for temperature sensing,1,R-TH-5mm,10K@25C,LCSC,C143680,0.10,0.10,GP27 ADC1 — 10K voltage divider to GND
+R6,Resistor 10K,Voltage divider resistor for LDR,1,R-TH-0.25W,10K,LCSC,C57438,0.01,0.01,Lower leg of LDR voltage divider
+R7,Resistor 10K,Voltage divider resistor for NTC,1,R-TH-0.25W,10K,LCSC,C57438,0.01,0.01,Lower leg of NTC voltage divider
+BT1,AA Battery Holder 2x,2×AA battery holder with leads,1,BattHolder-2xAA,3V,LCSC,C70377,0.30,0.30,Connects to XIAO 3V3 pin via slide switch
+C1,Capacitor 100nF,Decoupling capacitor for 3V3 rail,1,C-TH-5mm,100nF,LCSC,C1663,0.02,0.02,Place close to XIAO 3V3 pin
+C2,Capacitor 100nF,Decoupling capacitor for 5V rail,1,C-TH-5mm,100nF,LCSC,C1663,0.02,0.02,Place close to XIAO 5V/VBUS pin
+H1,Female Pin Header 7-pin,2.54mm female header for XIAO left side,1,PinHeader-1x7-2.54mm,Female,LCSC,C124418,0.08,0.08,XIAO mounts on top — removable
+H2,Female Pin Header 7-pin,2.54mm female header for XIAO right side,1,PinHeader-1x7-2.54mm,Female,LCSC,C124418,0.08,0.08,XIAO mounts on top — removable
+PCB,Custom PCB,2-layer FR4 150x150mm HASL finish,1,150x150mm,FR4,JLCPCB,,2.00,2.00,Rounded corners — order Gerbers from hardware/gerbers/
+,,,,,,,,,,
+,,TOTAL ESTIMATED COST PER KIT (qty 100+),,,,,,$7.80,,
+,,MCU only (XIAO RP2040),,,,,,$5.00,,Largest single cost — reusable across kits
+,,All passives + switches,,,,,,$0.80,,
+,,PCB (qty 100 JLCPCB),,,,,,$2.00,,Drops further at higher volumes

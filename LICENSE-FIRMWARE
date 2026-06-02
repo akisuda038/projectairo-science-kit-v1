@@ -1,0 +1,122 @@
+# Airo Science Kit v1 — Schematic Reference
+# KiCad 8 — schematic file lives at hardware/schematic/airo-science-kit-v1.kicad_sch
+#
+# This file documents all connections for reference and KiCad recreation.
+# Use KiCad 8 (free download: https://www.kicad.org) to open the .kicad_sch file.
+
+==============================================================
+NET LIST — ALL CONNECTIONS
+==============================================================
+
+POWER RAILS
+-----------
+VBAT  : BT1(+)  → SW1(pin1)
+3V3   : SW1(pin2) → XIAO(3V3) → C1(+)
+GND   : BT1(-)  → XIAO(GND)  → C1(-) → C2(-) → R6(bot) → R7(bot)
+5V    : XIAO(5V/VBUS) → C2(+)   [USB power only, not battery]
+
+LED OUTPUTS  (GP0–GP4, Digital OUT, 3.3V logic)
+-----------
+GP0 → R1(top) → R1(bot) → LED1(A) → LED1(K) → GND   [Red]
+GP1 → R2(top) → R2(bot) → LED2(A) → LED2(K) → GND   [Green]
+GP2 → R3(top) → R3(bot) → LED3(A) → LED3(K) → GND   [Yellow]
+GP3 → R4(top) → R4(bot) → LED4(A) → LED4(K) → GND   [Blue]
+GP4 → R5(top) → R5(bot) → LED5(A) → LED5(K) → GND   [White]
+
+BUZZER OUTPUT  (GP5, PWM OUT)
+--------------
+GP5  → BZ1(+)
+GND  → BZ1(-)
+
+BUTTON INPUTS  (GP6–GP9, Digital IN, internal pull-up)
+--------------
+GP6  → BTN1(pin1);  BTN1(pin2) → GND   [Button A]
+GP7  → BTN2(pin1);  BTN2(pin2) → GND   [Button B]
+GP8  → BTN3(pin1);  BTN3(pin2) → GND   [Button C]
+GP9  → BTN4(pin1);  BTN4(pin2) → GND   [Button D]
+Note: Enable internal pull-ups in firmware. Buttons are active-LOW.
+
+SENSOR INPUTS  (GP26 = ADC0, GP27 = ADC1)
+--------------
+LDR voltage divider:
+  3V3 → LDR1(top) → LDR1(bot) → node_A → R6 → GND
+  node_A → GP26 (ADC0)
+
+Thermistor voltage divider:
+  3V3 → NTC1(top) → NTC1(bot) → node_B → R7 → GND
+  node_B → GP27 (ADC1)
+
+Note: Both dividers are top-variable (sensor on top, 10K fixed on bottom).
+ADC reads voltage at mid-point. Higher light = lower LDR resistance = higher ADC.
+Higher temp = lower NTC resistance = higher ADC.
+
+DECOUPLING CAPACITORS
+---------------------
+C1: 3V3 to GND — place within 5mm of XIAO 3V3 pin
+C2: 5V  to GND — place within 5mm of XIAO VBUS pin
+
+XIAO RP2040 MODULE HEADERS
+---------------------------
+Left header  (H1, 7-pin female, 2.54mm):
+  Pin 1: GP0
+  Pin 2: GP1
+  Pin 3: GP2
+  Pin 4: GP3
+  Pin 5: GP4
+  Pin 6: GP5
+  Pin 7: GP6
+
+Right header (H2, 7-pin female, 2.54mm):
+  Pin 1: GP27
+  Pin 2: GP26
+  Pin 3: GND
+  Pin 4: 3V3
+  Pin 5: GP9
+  Pin 6: GP8
+  Pin 7: GP7
+
+==============================================================
+PCB ZONE PLACEMENT GUIDE
+==============================================================
+
+Board size: 150mm × 150mm, 2-layer FR4, HASL or ENIG finish
+Corner radius: 3mm (rounded for safety)
+Silkscreen: White on green or blue soldermask
+
+Zone A — Brain (top-left quadrant, ~75x75mm)
+  - H1, H2 female headers (XIAO mounts here)
+  - SW1 slide switch at board edge
+  - C1, C2 decoupling caps close to XIAO
+  - Silkscreen: "BRAIN" label, USB-C arrow pointing to board edge
+
+Zone B — Output (top-right quadrant, ~75x75mm)
+  - LED1–LED5 in a horizontal row, 10mm spacing
+  - R1–R5 directly behind each LED
+  - BZ1 buzzer with musical note silkscreen icon
+  - Silkscreen: "OUTPUT" label, LED color dots under each LED
+
+Zone C — Input (bottom half, full width, ~150x75mm)
+  - BTN1–BTN4 evenly spaced, large silkscreen labels A B C D
+  - Extra spacing for student fingers
+  - Silkscreen: "INPUT" label
+
+Zone D — Sense (right side of Zone B area)
+  - LDR1 in a window cutout or near board edge for light exposure
+  - NTC1 exposed (no covering component)
+  - R6, R7 voltage dividers directly adjacent
+  - Silkscreen: "LIGHT" and "TEMP" labels with icons
+
+Battery holder:
+  - BT1 on PCB underside or with JST connector at board edge
+  - SW1 on top side at board edge for easy access
+
+==============================================================
+DESIGN RULES (JLCPCB compatible)
+==============================================================
+Min trace width    : 0.2mm (use 0.3mm for signal, 0.5mm for power)
+Min clearance      : 0.2mm
+Min drill size     : 0.3mm
+Via size           : 0.8mm drill, 1.2mm pad
+Copper pour        : GND fill on both layers
+Soldermask         : Both sides
+Silkscreen         : Both sides (labels on top)

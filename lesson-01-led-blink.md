@@ -1,0 +1,21 @@
+CERN Open Hardware Licence Version 2 - Strongly Reciprocal
+
+CERN-OHL-S V2
+
+Copyright Project Airo 2024
+
+This source describes Open Hardware and is licensed under the CERN-OHL-S v2.
+You may redistribute and modify this source and make products using it under
+the terms of the CERN-OHL-S v2 (https://ohwr.org/cern_ohl_s_v2.txt).
+
+This source is distributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY, INCLUDING
+OF MERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A PARTICULAR PURPOSE.
+Please see the CERN-OHL-S v2 for applicable conditions.
+
+Source location: https://github.com/projectairo/science-kit-v1
+
+As per CERN-OHL-S v2 section 4, should you produce hardware based on this
+source, you must where practicable maintain the Source Location visible on the
+PCB and/or its enclosure.
+
+Full license text: https://ohwr.org/cern_ohl_s_v2.txt
